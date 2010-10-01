@@ -5,6 +5,7 @@ class RegistrationsController < ApplicationController
 
   # GET /resource/sign_in
   def new
+    @person = Person.find_by_invitation_code params[:invitation_code]
     build_resource
     render_with_scope :new
   end
